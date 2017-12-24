@@ -1,2 +1,2 @@
 # ArduinoTualetStatus
-1
+One-room Toilet test.
