@@ -24,46 +24,24 @@ void loop()
 /*Послать заголовок http ответа*/
 
   client.println("HTTP/1.1 200 OK");
-  client.println("Content-Type: text/html");
+  client.println("Content-Type: application/json");
   client.println("Connnection: close");
   client.println();
 
 /*Web-страница, которая будет послана клиенту*/
 
-  client.println("<!DOCTYPE html>");  
-  client.println("<html>");
-  client.println("<head>");
-  client.println("<title>Tualet Status</title>");
-  client.println("<meta http-equiv=\"refresh\" content=\"1\">");    //Обновления страницы каждую секунду
-  client.println("<style>");
-  client.println("#centerLayer {");
-  client.println("position: absolute;"); 
-  client.println("width: 280px;"); 
-  client.println("height: 180px;"); 
-  client.println("left: 50%;"); 
-  client.println("top: 50%;"); 
-  client.println("margin-left: -150px;"); 
-  client.println("margin-top: -100px;"); 
-  client.println("text-align: center;");
-  client.println("overflow: auto;"); 
-  client.println("</style>");  
-  client.println("</head>");
-  client.println("<body>"); 
-  client.println("<div id='centerLayer'>");
-  client.print("<h1>Tualet closed?</h1>");
+  client.print("{\"status\":{\"first\":{\"occupied\":");
 
   if (digitalRead(8))
   {
-    client.println("<h2>YES</h2>");
+    client.println("false");
   }
   else
   {
-    client.println("<h2>NO</h2>");
+    client.println("true");
   }
 
-  client.println("</div>");
-  client.println("</body>");
-  client.println("</html>");
+  client.print("},\"second\":{\"occupied\":true}}}");
 
   delay(1);              // Время,приема данных
 
