@@ -30,7 +30,7 @@ void loop()
 
 /*Web-страница, которая будет послана клиенту*/
 
-  client.print("{\"status\":{\"first\":{\"occupied\":");
+  client.print("{\"status\":{\"first\":{\"open\":");
 
   if (digitalRead(8))
   {
@@ -41,7 +41,7 @@ void loop()
     client.println("true");
   }
 
-  client.print("},\"second\":{\"occupied\":true}}}");
+  client.print("},\"second\":{\open\":true}}}");
 
   delay(1);              // Время,приема данных
 
