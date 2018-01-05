@@ -27,9 +27,6 @@ void loop()
   client.println("Content-Type: application/json");
   client.println("Connnection: close");
   client.println();
-
-/*Web-страница, которая будет послана клиенту*/
-
   client.print("{\"status\":{\"first\":{\"open\":");
 
   if (digitalRead(8))
